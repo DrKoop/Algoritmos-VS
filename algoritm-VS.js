@@ -181,3 +181,34 @@ const reverseString = (str) => {
 const res3 = reverseString('hola')
 
 console.log(res3)
+
+//Encontrar el caracter que se repite mas veces en un String y cuantas veces se repite
+
+
+
+const maxCharRepeat = (str) => {
+    //Creamos un objeto
+    let obj = {}
+    //si el carcater existe en el objeto Setteamos (1) , si ese valor esta duplicado => incrementamos el valor +1,si no peramenece con el mismo valor inicial (1)
+    for( let char of str){
+        (!obj[char]) ? obj[char] = 1 : obj[char]++;
+        console.log(obj)
+    }
+
+    //Recorrer el objeto para verificar cuantas veces se esta repitiendo el elemento
+    let maxNum = 0
+    let maximumChar = ''
+    for( let char in obj ){
+
+        if(obj[char] >= maxNum ){
+            maxNum = obj[char]
+            maximumChar = char
+        }
+    }
+
+
+    console.log(`El elemento: ${maximumChar} aparece ${maxNum} veces`)
+}
+
+
+maxCharRepeat('TesTsETtttiiInnGggggG')

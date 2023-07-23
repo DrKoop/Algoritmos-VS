@@ -95,3 +95,89 @@ const c = isPalindrome('hanah')
 console.log(c)
 
 
+function esPalindromo(cadena){
+    let array = cadena.split('')
+    let reverseArray = array.reverse()
+
+    return cadena == reverseArray.join('') ? 'es un palindromo' : 'no es un palindromo'
+}
+
+const e = esPalindromo('hanah')
+
+console.log(e)
+
+for(i= 1; i<= 100; i ++){
+    let result = ''
+
+    if( i%3 === 0){
+        result = result + 'Fizz'
+    }
+    if( i%5 === 0){
+        result = result + 'Buzz'
+    }
+
+    console.log(result || i)
+}
+
+//Obtener 6 numeros random, que no sean repetidos, y siempre que el array se llene con "6"  elementos cortar la funcion
+
+const randomInterval = (min, max) => {
+    return Math.floor( Math.random() * ( max - min + 1) + min )
+}
+
+function filterNumbers(){
+    const result = []
+
+    while( result.length < 6 ){
+        const number = randomInterval(0, 6)
+        //Evitar Numeros Repetidos
+        if(result.includes(number)) continue
+        result.push(number)
+    }
+    return result
+}
+
+const res2 = filterNumbers()
+console.log(res2)
+
+//Busqueda Binaria, Busca un elemento dentro de un Array, en el segundo argumento se Sette el entero que se esta buscando 
+
+const busquedaBinaria= function( arreglo,elementos){
+    let inicio = 0
+    let fin = arreglo.length - 1
+
+    while( inicio <= fin ){
+        let puntoMedio = Math.floor(( inicio + fin ) / 2)
+
+        if( arreglo[puntoMedio] === elementos ){
+            return puntoMedio
+        }else if( arreglo[puntoMedio] < elementos){
+            inicio = puntoMedio + 1
+        }else{
+            fin = puntoMedio -1
+        }
+    }
+
+    return - 1
+}
+
+
+const test = busquedaBinaria( [1,2,3,11,2,0,1], 3)
+
+console.log(test)
+
+//Invertir un String
+
+const reverseString = (str) => {
+    //1 string a Array 
+    const arr =  str.split('')
+    // 2 voltear el array
+    arr.reverse()
+    //convertirlo a string
+    str = arr.join('')
+    return str
+}
+
+const res3 = reverseString('hola')
+
+console.log(res3)

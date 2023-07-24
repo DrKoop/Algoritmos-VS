@@ -212,3 +212,46 @@ const maxCharRepeat = (str) => {
 
 
 maxCharRepeat('TesTsETtttiiInnGggggG')
+
+
+
+function normalizeString( str ){
+    return str.replace(/[^\w]/g, '').toLowerCase()
+}
+
+
+function getMaxChartwo (string){
+    //creamos un objeto para Settear cada carcater del string y los conteos
+    const charMap = {}
+    //compara el conteo de la cadena
+    let max = 0
+    //donde acumularemos el resultado final
+    let resultChar = ''
+
+    //Primer loop para recorrer la cadena y rellenarla en nuestro objeto vacío
+    for(let char of normalizeString(string)){
+
+        //incrementamos +1 si un caracter se REPITE
+        if( charMap[char] ){
+            charMap[char]++
+        }else{
+            //si no se repite un caracater solo asignamos el value de "1"
+            charMap[char] = 1
+        }
+    }
+
+    //Recorremos nuestro objeto ya con los NUEVOS datos setteados
+    for(let char in charMap){
+        //identificamos el caracter de la cadena que sea mayor a 1 (es decir el caracter repetido)
+        if( charMap[char] > max ){
+            //Asignamos dicho caracter repetido, a nuestro actual objeto
+            max = charMap[char]
+            resultChar = char
+        }
+
+    }
+
+    return (`The Max Character repited of Your String is ${resultChar}`)
+}
+
+console.log( getMaxChartwo('assalopaaa************aos') )

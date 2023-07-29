@@ -13,6 +13,29 @@ const  multiply = (a, b) => {
     return resultado
  }
 
+ const reverseTheString =  (string) => {
+
+    if( string === ""){
+        return ""
+    }else{
+        return reverseTheString( string.substr(1) ) + string.charAt(0)
+    }
+
+}
+
+const r_esult = reverseTheString('Brave')
+console.log(r_esult) 
+
+
+//reverseTheString('Brave')
+
+//reverseTheString('Brav' + e) 1 call
+//reverseTheString('Bra' + v) 2 call
+//reverseTheString('Br' + a) 3 call
+//reverseTheString('B' + r) 4 call
+//reverseTheString('' + B) 5 call
+
+
  //Obtener el numero mayor en 1 arreglo, SOLO iterando 1 vez .
  const numPositivo = (arr)  => 
                         arr.reduce( (accumulator, element)  =>
@@ -255,3 +278,45 @@ function getMaxChartwo (string){
 }
 
 console.log( getMaxChartwo('assalopaaa************aos') )
+
+
+
+//Reverse a Number
+const reverseAInt = (number) => {
+    /* let convert = number.toString();
+        convert.split(' ').reverse()
+    Number(convert)
+    return convert */
+
+    return Number(number.toString().split('').reverse().join(''))
+
+}
+
+const testing = reverseAInt(1921)
+
+console.log(  testing)
+
+
+
+
+function FizzBuzz( arrayUser ) {
+
+    let answer = []
+
+    for( let i=1;  i<= arrayUser; i++ ){
+
+        if (i % 3 == 0 && i % 5 == 0)
+            answer.push("FizzBuzz")
+        else if (i % 3 == 0)
+            answer.push("Fizz")
+        else if (i % 5 == 0)
+            answer.push("Buzz")
+        else
+            answer.push(i.toString() )
+    }
+
+    return answer
+}
+
+const resultiz = FizzBuzz( 15 )
+console.log( resultiz )
